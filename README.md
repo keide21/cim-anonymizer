@@ -9,7 +9,7 @@
 ```powershell
 py -3.12 -m venv .venv312
 .\.venv312\Scripts\python.exe -m pip install -r requirements.txt
-.\.venv312\Scripts\python.exe -X utf8 anonymize_cim.py input.xml input-anonymized.xml --key-file cim.key --coordinates
+.\.venv312\Scripts\python.exe -X utf8 .\anonymize_cim.py .\input.xml .\input-anonymized.xml --key-file .\cim.key --coordinates --ref-cache-size 800000 --fast-diagrams --diagram-workers 4
 ```
 
 При первом запуске скрипт создаёт ключ. Храните его отдельно от выгрузки. Используйте тот же ключ, чтобы получить те же псевдонимы. Флаг `--coordinates` обнуляет числовые координаты и их высоту в полях модели. Если флаг пропустить, географические координаты сохраняются. Координаты размещения условных знаков на однолинейных схемах относятся к оформлению этих схем.
