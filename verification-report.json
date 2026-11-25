@@ -1,0 +1,72 @@
+{
+  "input_bytes": 965687909,
+  "output_name": "input-anonymized-competition-fixed.xml",
+  "output_bytes": 898615460,
+  "output_sha256": "BC176B21888148049F7D3BC1E17460C208729E45A25677643478F2546873D2D5",
+  "python": "3.12.10",
+  "arguments": [
+    "--coordinates",
+    "--ref-cache-size",
+    "800000",
+    "--fast-diagrams",
+    "--diagram-workers",
+    "4"
+  ],
+  "full_run": {
+    "classes": 263,
+    "records": 741550,
+    "audio_attachments": 4,
+    "customer_individual": 535,
+    "customer_other_or_unspecified": 22,
+    "definitions": 741550,
+    "diagram_packages": 3233,
+    "encoded_xml": 1107,
+    "formula_operand_mentions": 5704,
+    "modified_literals": 1155288,
+    "other_cyrillic_formula_symbols": 94,
+    "raster_attachments": 569,
+    "references": 5455104,
+    "schema_references": 201829,
+    "seconds": {
+      "catalog": 25.444,
+      "xml_read_and_overhead": 44.989,
+      "anonymize": 164.208,
+      "xml_write": 24.064,
+      "total": 258.712,
+      "diagram_result_wait": 29.509
+    },
+    "ref_cache": {
+      "hits": 5455104,
+      "misses": 746799,
+      "entries": 746799
+    }
+  },
+  "independent_regression": {
+    "Records": 741550,
+    "RdfRefs": 5656933,
+    "Packages": 3233,
+    "NestedPackages": 22,
+    "Members": 16210,
+    "Dimensions": 6597,
+    "Formula": 1088,
+    "Script": 44,
+    "UserNames": 4,
+    "NamesLists": 14,
+    "EmbeddedIds": 812952,
+    "ReconciledWithRdf": 237789,
+    "ExpressionLabels": 1088,
+    "ExpressionSelectors": 1015,
+    "NumericNodeValues": 60229,
+    "FieldSelectors": 1622,
+    "ScriptSyntaxClean": 44,
+    "ScrubbedTextValues": 13840
+  },
+  "checks": [
+    "Top-level records and RDF references identical to the earlier independently audited output",
+    "Diagram XML and package members compared against the original",
+    "Formula literals and operators preserved with consistent operand aliases",
+    "C# syntax diagnostics and non-string executable tokens preserved",
+    "Serial and parallel outputs byte-identical on a targeted fixture"
+  ],
+  "monitel_import_and_execution_tested": false
+}
