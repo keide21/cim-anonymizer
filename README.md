@@ -7,9 +7,9 @@
 Распакуйте архив в рабочую папку. Нужен Python 3.11 или новее. Прогон проверен на Python 3.12. Выполните в PowerShell:
 
 ```powershell
-py -3 -m venv .venv
-.\.venv\Scripts\python.exe -m pip install -r requirements.txt
-.\.venv\Scripts\python.exe -X utf8 anonymize_cim.py input.xml input-anonymized.xml --key-file cim.key --coordinates
+py -3.12 -m venv .venv312
+.\.venv312\Scripts\python.exe -m pip install -r requirements.txt
+.\.venv312\Scripts\python.exe -X utf8 anonymize_cim.py input.xml input-anonymized.xml --key-file cim.key --coordinates
 ```
 
 При первом запуске скрипт создаёт ключ. Храните его отдельно от выгрузки. Используйте тот же ключ, чтобы получить те же псевдонимы. Флаг `--coordinates` обнуляет числовые координаты и их высоту в полях модели. Если флаг пропустить, географические координаты сохраняются. Координаты размещения условных знаков на однолинейных схемах относятся к оформлению этих схем.
@@ -25,7 +25,7 @@ py -3 -m venv .venv
 ## Проверка результата
 
 ```powershell
-.\.venv\Scripts\python.exe -X utf8 anonymize_cim.py input.xml input-anonymized.xml --key-file cim.key --coordinates --verify
+.\.venv312\Scripts\python.exe -X utf8 anonymize_cim.py input.xml input-anonymized.xml --key-file cim.key --coordinates --verify
 ```
 
 Используйте те же настройки обезличивания, уровень сжатия и словарь, что и при обработке. Проверка заново вычисляет ожидаемые значения, сравнивает записи по порядку и сверяет разрешение RDF-ссылок до и после замены. Она проверяет уникальность RDF-идентификаторов и полей `IdentifiedObject.name`. Ссылки без определения в обоих файлах учитываются отдельно.
